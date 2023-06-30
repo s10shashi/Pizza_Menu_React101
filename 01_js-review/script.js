@@ -324,38 +324,109 @@ function getBook(id) {
  */
 
 /************** MAP***********************/
+//
+// const books = getBooks();
 
-const books = getBooks();
+// // const x= [1,2,3,4,5,6,7,8,9,10].map((el)=> el*2)
+// // console.log(x);
+// function getTotalRevieCount(book) {
+//   const goodreads = book.reviews.goodreads?.reviewsCount ?? 0;
+//   const libCount = book.reviews.librarything?.reviewsCount ?? 0;
+//   return goodreads + libCount;
+// }
 
-// const x= [1,2,3,4,5,6,7,8,9,10].map((el)=> el*2)
-// console.log(x);
-function getTotalRevieCount(book) {
-  const goodreads = book.reviews.goodreads?.reviewsCount ?? 0;
-  const libCount = book.reviews.librarything?.reviewsCount ?? 0;
-  return goodreads + libCount;
-}
+// const titles = books.map((book) => book.title);
+// //console.log(titles);
 
-const titles = books.map((book) => book.title);
-//console.log(titles);
+// const essentialData = books.map((book) => ({
+//   titles: book.title,
+//   author: book.author,
+//   reviewCount: getTotalRevieCount(book),
+// }));
 
-const essentialData = books.map((book) => ({
-  titles: book.title,
-  author: book.author,
-  reviewCount: getTotalRevieCount(book),
-}));
+// /**mif we use ( ) breckets before {} in function then we dont have to use the syntex return as it return everything */
 
-/**mif we use ( ) breckets before {} in function then we dont have to use the syntex return as it return everything */
+// //console.log(essentialData);
 
-//console.log(essentialData);
+// //////////****************FILTER METHOD************** */
 
-//////////****************FILTER METHOD************** */
+// const longBook = books
+//   .filter((book) => book.pages > 500)
+//   .filter((book) => book.hasMovieAdaptation);
+// console.log(longBook);
 
-const longBook = books
-  .filter((book) => book.pages > 500)
-  .filter((book) => book.hasMovieAdaptation);
-console.log(longBook);
+// const adventureBook = books
+//   .filter((book) => book.genres.includes("adventure"))
+//   .map((book) => book.title);
+// console.log(adventureBook);
 
-const adventureBook = books
-  .filter((book) => book.genres.includes("adventure"))
-  .map((book) => book.title);
-console.log(adventureBook);
+// ////////////////////////////////////////
+// /***************Reduce Method**********************/
+
+// const pagesOfAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
+// pagesOfAllBooks;
+
+// //////////////////////////////////////
+// /***Sort method**************/
+
+// const arr = [1, 5, 9, 8, 7, 3, 5, 7];
+// const sorted = arr.slice().sort((a, b) => a - b);
+// const reverseSort = arr.slice().sort((a, b) => b - a);
+// arr;
+// sorted;
+// reverseSort;
+// /****** it mutate the data.. so to over come that we have to date a copy of arr the update
+//  *
+//  * thus before sort() method we use slice() method.
+//  */
+
+// const sortByPages = books.slice().sort((a, b) => b.pages - a.pages);
+// console.log(sortByPages);
+
+// /////////////////////////////////////////////////////////
+
+// //********Working with immutable Arrays**********/
+
+// /////// Adding new object book in array'
+// const newBook = {
+//   id: 6,
+//   title: "Harry Potter and the chember of Sercreat",
+//   author: "J.k.Rowling",
+// };
+// const AddBooks = [...books, newBook];
+// AddBooks;
+
+// /////////// del book from array
+
+// const booksAfterDel = AddBooks.filter((book) => book.id !== 3);
+// booksAfterDel;
+
+// /////////// update a book object in array;
+
+// const updatedBook= booksAfterDel.map((book)=>book.id===1 ? {/*detail of update object*/...book,pages:10 } : book);
+// updatedBook;
+
+// //updated sucessfull//
+
+//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+/**********fetch+ Asynchronous promis*********/
+
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res)=> res.json())
+//   .then((data)=> console.log(data));
+
+//   console.log("hello")
+
+/////////////////////////////////////////
+
+// /*********Async/Await ***********************/
+
+// async function getTodos() {
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${1}`);
+//   const data = await res.json();
+//   console.log(data);
+// }
+
+// getTodos();
+// console.log("hello");
