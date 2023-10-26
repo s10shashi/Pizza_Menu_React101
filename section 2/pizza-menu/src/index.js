@@ -98,7 +98,7 @@ function Menu() {
       <h2>Our Menu</h2>
       {/* new ternarie method */}
       {/* <p>
-        Authentic Italian cuisine. 6 creative pizzas to choose from. All from
+        Authentic Italian cuisine. 8 creative pizzas to choose from. All from
         our stone oven, all organic, all Delicious.
       </p> */}
 
@@ -174,7 +174,7 @@ function Order({ closeHour, openHour }) {
     <div className="order">
       <p>
         We're Open from {openHour}:00 to {closeHour}:00. Please Coome Visit Us
-        on Order Online
+        or Order Online
       </p>
       <button className="btn"> Order Now</button>
     </div>
